@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_riverpod/providers/hello_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../controllers/hello_provider.dart';
 
 class YearPage extends StatelessWidget {
   const YearPage({Key? key}) : super(key: key);

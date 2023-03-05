@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_riverpod/pages/counter_page.dart';
-import 'package:flutter_application_riverpod/pages/hello_page.dart';
-import 'package:flutter_application_riverpod/pages/year_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'utils/app_route.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -18,9 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: const HelloPage(),
-      // home: const YearPage(),
-      home: const CounterPage(),
+      initialRoute: AppRoute.todoPage,
+      onGenerateRoute: AppRoute.generateRoute,
     );
   }
 }

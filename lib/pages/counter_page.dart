@@ -1,26 +1,30 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../providers/hello_provider.dart';
+import '../controllers/counter_controller.dart';
 
 class CounterPage extends ConsumerWidget {
   const CounterPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('object');
+    log('build call');
     // show a SnackBar when a provider state changes.
     // not when the build method is called
-    ref.listen<StateController<int>>(counterStateProvider.state,
-        (previous, current) {
-      print('current.state: ${current.state}');
-    });
+    // ref.listen<StateController<int>>(counterProvider.notifier,
+    //     (previous, current) {
+    //   log('current.state: ${current.state}');
+    // });
+    final counter = ref.watch(counterControllerProvider);
     return Scaffold(
       body: Center(
-        child: Text('${ref.watch(counterStateProvider)}'),
+        child: Text('$counter'),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => ref.read(counterStateProvider.state).state++,
+        onPressed: () =>
+            ref.read(counterControllerProvider.notifier).increment(),
         child: const Icon(Icons.add),
       ),
     );
