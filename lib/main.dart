@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: AppRoute.todoPage,
+      initialRoute: AppRoute.postPage,
       onGenerateRoute: AppRoute.generateRoute,
     );
   }

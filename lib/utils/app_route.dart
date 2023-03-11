@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_riverpod/pages/post_page.dart';
 
 import '../pages/counter_page.dart';
 import '../pages/edit_todo_page.dart';
@@ -10,6 +11,7 @@ class AppRoute {
   static const String counterPage = 'counterPage';
   static const String todoPage = 'todoPage';
   static const String editTodoPage = 'editTodoPage';
+  static const String postPage = 'postPage';
   static const String error = 'error';
 
   // home: const HelloPage(),
@@ -25,6 +27,8 @@ class AppRoute {
         return MaterialPageRoute(builder: (_) => TodoPage());
       case counterPage:
         return MaterialPageRoute(builder: (_) => CounterPage());
+      case postPage:
+        return MaterialPageRoute(builder: (_) => PostPage());
       case editTodoPage:
         return MaterialPageRoute(builder: (_) => EditTodoPage());
       case error:

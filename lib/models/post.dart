@@ -1,16 +1,23 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'post.freezed.dart';
 part 'post.g.dart';
 
-@freezed
-class Post with _$Post {
-  factory Post({
-    required int userId,
-    required int id,
-    required String title,
-    required String body,
-  }) = _Post;
+@JsonSerializable()
+class Post {
+  // @JsonKey(name: 'user_id')
+  final int userId;
+  final int id;
+  final String title;
+  // final String body;
+
+  Post({
+    required this.userId,
+    required this.id,
+    required this.title,
+    // required this.body,
+  });
 
   factory Post.fromJson(Map<String, dynamic> json) => _$PostFromJson(json);
+
+  // Map<String, dynamic> toJson() => _$PostFromJson(this);
 }
